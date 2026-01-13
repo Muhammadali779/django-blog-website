@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Maqolalarni boshqarish{% endblock title %}
+
+{% block content %}
+<section class="blog-delete">
+    <header>
+        <h1>Maqolalarni tahrirlash yoki o‘chirish</h1>
+        <p>Ro‘yxatdan kerakli amalni tanlang</p>
+    </header>
+
+    <ul class="delete-list">
+        {% for blog in blogs %}
+        <li class="delete-item" style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #ddd;">
+            <span>{{ blog.title }}</span>
+            
+            <div class="actions">
+                <a href="{% url 'blog_update' blog.id %}" 
+                   style="background-color: #f0ad4e; color: white; padding: 8px 12px; text-decoration: none; border-radius: 5px; margin-right: 10px;">
+                   Tahrirlash
+                </a>
+
+                <form action="{% url 'blog_delete' blog.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-btn" style="background-color: #d9534f; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer;">
+                        O‘chirish
+                    </button>
+                </form>
+            </div>
+        </li>
+        {% empty %}
+        <li>Hozircha maqolalar yo‘q.</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock content %}

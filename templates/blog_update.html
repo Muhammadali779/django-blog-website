@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Maqolani tahrirlash{% endblock title %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/update.css' %}">
+{% endblock stylesheet %}
+
+{% block content %}
+<div class="update-container">
+    <h1>Maqolani tahrirlash</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="title">Sarlavha:</label>
+            <input type="text" id="title" name="title" value="{{ post.title }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="slug">Slug:</label>
+            <input type="text" id="slug" name="slug" value="{{ post.slug }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="reading_minute">O'qish vaqti (daqiqa):</label>
+            <input type="number" id="reading_minute" name="reading_minute" value="{{ post.reading_minute }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tg_link">Telegram link:</label>
+            <input type="url" id="tg_link" name="tg_link" value="{{ post.tg_link }}">
+        </div>
+
+        <div class="form-group">
+            <label for="content">Mazmuni:</label>
+            <textarea id="content" name="content" required>{{ post.content }}</textarea>
+        </div>
+
+        <div class="btn-group">
+            <button type="submit" class="btn-save">Saqlash</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,78 @@
+.blog-delete {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.blog-delete header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.blog-delete header h1 {
+    font-size: 2rem;
+    color: #d9534f;
+}
+
+.blog-delete header p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.delete-list {
+    list-style: none;
+    padding: 0;
+}
+
+.delete-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.delete-item span {
+    font-size: 1.1rem;
+}
+
+.delete-btn {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c9302c;
+}
+/* static/css/delete.css ga qo'shimcha */
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit-link {
+    background-color: #f0ad4e;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn-edit-link:hover {
+    background-color: #ec971f;
+}
+
+.delete-btn {
+    cursor: pointer;
+}
