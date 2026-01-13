@@ -55,13 +55,14 @@ class BlogsView(View):
 
             return render(request, 'blog.html', {'posts': result, 'search': search})
 
-        return render(request, 'blog.html', {'posts': posts})
+        return render(request, 'blog.html', {'posts': posts[::-1]})
 
 
 class BlogDetailView(View):
     def get(self, request: HttpRequest, slug: str) -> HttpResponse:
         for post in posts:
             if post['slug'] == slug:
+                post['views'] += 1
                 return render(request, 'blog_detail.html', {'post': post})
         return render(request, 'blog.html', {'posts': posts, 'error': f'{slug} is not found.'})
 
